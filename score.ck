@@ -1,4 +1,1 @@
-Machine.add(me.dir()+"/BPM.ck");
-Machine.add(me.dir()+"/test.ck");
-
-5 :: minute => now;
+Machine.add(me.dir()+"/play.ck");
