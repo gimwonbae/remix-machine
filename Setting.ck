@@ -1,12 +1,14 @@
 public class Setting{
-    0.7 => static float start_rate;
-    30 => static int skip_prob;
-    30 => static int repeat_prob;
-    30 => static int bgm_prob;
-    30 => static int scratch_prob;
+    60 => static int skip_prob;
+    50 => static int repeat_prob;
+    20 => static int bgm_prob;
+    60 => static int scratch_prob;
     
-    fun void all_set(float s_rate, int s_prob, int r_prob, int b_prob, int sc_prob){
-        s_rate => start_rate;
+    0.7 => static float start_rate;
+    3 => static int repeat_time;
+    1 => static int intro_status;
+    
+    fun void set(int s_prob, int r_prob, int b_prob, int sc_prob){
         s_prob => skip_prob;
         r_prob => repeat_prob;
         b_prob => bgm_prob;
