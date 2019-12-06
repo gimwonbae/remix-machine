@@ -21,26 +21,30 @@ public class DJ{
         Math.random2(0,bgm.cap()-1) => int random;
         0 => bgm[random].pos;
         Math.random2f(0.2,0.4) => bgm[random].gain;
-        <<<"Scrath <background> file number : " + (random+1)>>>;
+        <<<"Scratch <background> file number : " + (random+1)>>>;
     }
-    fun void play_scratch(SndBuf music,SndBuf scratch){
-        0 => scratch.pos;
-        1 => scratch.gain;
+    fun void play_scratch(SndBuf music,SndBuf scratch[]){
+        Math.random2(0,scratch.cap()-1) => int random;
+        0 => scratch[random].pos;
+        1 => scratch[random].gain;
         0 => music.gain;
         music.pos() => int remember;
-        <<<"Scrath sound">>>;
-        scratch.samples() :: samp => now;
+        <<<"Scratch sound. file number : " + (random+1)>>>;
+        scratch[random].samples() :: samp => now;
         1 => music.gain;
-        remember => music.pos;
+        //remember => music.pos;
     }
-    fun void CnS(SndBuf music,SndBuf scratch,SndBuf bgm[],SndBuf intro){
+    fun void CnS(SndBuf music,SndBuf scratch[],SndBuf bgm[],SndBuf intro){
         
         music.samples() => int numSamples;
         
         for(0 => int i; i < bgm.cap(); i++){
             0 => bgm[i].gain;
         }
-        0 => scratch.gain;
+        for(0 => int i; i < scratch.cap(); i++){
+            0 => scratch[i].gain;
+        }
+        
         0 => intro.gain;
         
         if(Setting.intro_status){

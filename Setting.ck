@@ -1,10 +1,10 @@
 public class Setting{
-    60 => static int skip_prob;
+    30 => static int skip_prob;
     50 => static int repeat_prob;
     20 => static int bgm_prob;
-    60 => static int scratch_prob;
+    30 => static int scratch_prob;
     
-    0.7 => static float start_rate;
+    0.75 => static float start_rate;
     3 => static int repeat_time;
     1 => static int intro_status;
     
