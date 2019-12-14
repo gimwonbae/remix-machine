@@ -1,6 +1,8 @@
 public class DJ{
+    1 => int on; 
+    
     fun void skip(SndBuf music){
-        Math.random2(22050,66150) => int range;
+        Math.random2(10000,44100) => int range;
         music.pos() + range => music.pos;
         <<<"Sound Skip  " + range/44100.0 + "seconds">>>;
     }
@@ -15,7 +17,7 @@ public class DJ{
             }
             1 :: samp => now;
         }
-        <<<"Sound Repeat">>>;
+        <<<"Sound Repeat " + Setting.repeat_time + " times">>>;
     }
     fun void play_bgm(SndBuf bgm[]){
         Math.random2(0,bgm.cap()-1) => int random;
@@ -35,7 +37,7 @@ public class DJ{
         //remember => music.pos;
     }
     fun void CnS(SndBuf music,SndBuf scratch[],SndBuf bgm[],SndBuf intro){
-        
+        1 => on;
         music.samples() => int numSamples;
         
         for(0 => int i; i < bgm.cap(); i++){
@@ -56,19 +58,23 @@ public class DJ{
         
         while(music.pos() <= numSamples){
             
-            if(Math.random2(0,44100) * Math.random2(0,Setting.skip_prob) == 1){
+            if(Math.random2(0,44100*Setting.skip_prob) == 1){
                 skip(music);
             }
-            if(Math.random2(0,44100) * Math.random2(0,Setting.repeat_prob) == 1){
+            if(Math.random2(0,44100*Setting.repeat_prob) == 10000){
                 repeatt(music);
             }
-            if(Math.random2(0,44100) * Math.random2(0,Setting.bgm_prob)== 1){
+            if(Math.random2(0,44100*Setting.bgm_prob) == 20000){
                 play_bgm(bgm);
             }
-            if(Math.random2(0,44100) * Math.random2(0,Setting.scratch_prob) == 1){
+            if(Math.random2(0,44100*Setting.scratch_prob) == 30000){
                 play_scratch(music,scratch);
             }
-            1 :: samp => now;  
+            1 :: samp => now;
+            
+            if(music.pos() == numSamples){
+                0 => on;
+            }
         }
     }
 }

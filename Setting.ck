@@ -1,11 +1,11 @@
 public class Setting{
-    30 => static int skip_prob;
-    50 => static int repeat_prob;
-    20 => static int bgm_prob;
-    30 => static int scratch_prob;
+    50 => static int skip_prob;
+    60 => static int repeat_prob;
+    30 => static int bgm_prob;
+    40 => static int scratch_prob;
     
-    0.75 => static float start_rate;
-    3 => static int repeat_time;
+    0.7 => static float start_rate;
+    2 => static int repeat_time;
     1 => static int intro_status;
     
     fun void set(int s_prob, int r_prob, int b_prob, int sc_prob){
